@@ -1,52 +1,54 @@
-
 $(document).ready(function() {
-	
-	// //carica tutti gli album
-	// $.ajax({
-	// 	url: "API.php",
-	// 	method: "GET",
-	// 	success: function(data) {
-	// 		printAlbums(data);
-	// 	}
-	// });
-
-	// //filtro per artista
-	// $("#go").click(filterByArtist);
-
+	// prelevo dati dal db
+	$.ajax({
+		url: "fulldb.php",
+		method: "GET",
+		success: function(data) {
+			printGraph(data);
+		},
+		error: function(error) {
+			console.log("Errore API, ",error);
+		}
+	});
 });
 
 
-// function printAlbums(data) {
-// 	console.log(data);
-// 	var destinazione = $("#api");
 
-// 	//cancello tutti gli album inseriti prima (if present)
-// 	$(".apiAlbum").remove();
 
-// 	//stampo ad uno ad uno gli album
-// 	for (var i = 0; i < data.length; i++) {
-// 		var album = data[i];
-// 		var stampa =
-// 			"<div class='apiAlbum'>" +
-// 				"<h2>" + album.name + "</h2>" +
-// 				"<h3>" + album.artist + "</h3>" +
-// 				'<p>' + album.year + ", " + album.genre + "</p>" +
-// 				'<img src="' + album.cover + '">' +
-// 			"</div>";
-// 		//aggiungo album all'HTML
-// 		destinazione.append(stampa);
-// 	}
-// }
+function printGraph(data) {
+	//Init chart.js
+	var ctx = document.getElementById('graph1').getContext('2d');
+	//nomi dei mesi
+	var months = getMonths();
 
-// function filterByArtist() {
-// 	//prendo artista scelto, lo mando all'API
-// 	var artist = $("#artist").val();
-// 	$.ajax({
-// 		url: "API.php",
-// 		method: "GET",
-// 		data: {artist: artist},
-// 		success: function(data) {
-// 			printAlbums(data);
-// 		}
-// 	});
-// }
+	var lineChart = new Chart(ctx, {
+	    type: 'line',
+	    data: {
+	        labels: months,
+	        datasets: [{
+	            label: 'Vendite',
+	            data: data,
+	            borderColor: 'rgba(200, 0, 0, 1)',
+	            borderWidth: '4',
+	            showLine: 'false',
+	            backgroundColor: 'rgba(0, 128, 21, 1)',
+	            pointBorderColor: "rgba(20, 20, 20, 1)"
+	        }]
+	    },
+	    options: {
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero: true
+	                }
+	            }]
+	        }
+	    }
+	});
+}
+
+function getMonths() {
+	moment.locale('it');
+	var months = moment.months();
+	return months;
+}

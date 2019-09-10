@@ -21,8 +21,8 @@
     // else {
     //     $result = $albums;
     // }
+    // $result = $data;
 
-
-    echo json_encode($result);
+    echo json_encode($data);
 
  ?>

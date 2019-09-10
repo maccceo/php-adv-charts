@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
     <!-- JS: HANDLEBARS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+    <!-- JS: CHART JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <!-- CSS: MY STYLE -->
     <link rel="stylesheet" href="style.css">
     <!-- JS: MY SCRIPT -->
@@ -20,9 +22,13 @@
     <!-- TEMPLATE: MESSAGE MENU -->
     <script id="item-template" type="text/x-handlebars-template">
     </script>
+
   </head>
   <body>
   	<div id="main-container">
+      <div class="graph-container" id="graph1-container">
+        <canvas id="graph1" width="500" height="200"></canvas>
+      </div>
     </div>
   </body>
 </html>
