@@ -27,7 +27,14 @@
   <body>
   	<div id="main-container">
       <div class="graph-container" id="graph1-container">
+        <h1>Grafici Step 1</h1>
         <canvas id="graph1" width="500" height="200"></canvas>
+      </div>
+
+      <div class="graph-container" id="graph2-container">
+        <h1>Grafici Step 2</h1>
+        <canvas id="graph2a" width="500" height="200"></canvas>
+        <canvas id="graph2b" width="500" height="200"></canvas>
       </div>
     </div>
   </body>
