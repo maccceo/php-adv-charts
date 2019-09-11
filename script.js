@@ -4,7 +4,8 @@ $(document).ready(function() {
 		url: "fulldb.php",
 		method: "GET",
 		success: function(data) {
-			printLineGraph(data, "graph1", "line");
+			var label = getMonths();
+			printLineGraph(data, "graph1", "line", label);
 		},
 		error: function(error) {
 			console.log("Errore API, ",error);
@@ -27,16 +28,14 @@ $(document).ready(function() {
 
 
 
-function printLineGraph(data, graphID, type) {
+function printLineGraph(data, graphID, type, label) {
 	//Init chart.js
 	var ctx = document.getElementById(graphID).getContext('2d');
-	//nomi dei mesi
-	var months = getMonths();
 
 	var lineChart = new Chart(ctx, {
 	    type: type,
 	    data: {
-	        labels: months,
+	        labels: label,
 	        datasets: [{
 	            label: 'Vendite',
 	            data: data,
@@ -85,17 +84,18 @@ function printPieGraph(data, graphID, type, label) {
 function step2(data) {
 	//Grafico 1
 	printLineGraph(
-		data.fatturato.data,
-		"graph2a",
-		data.fatturato.type
+		data.fatturato.data,	//dati grafico
+		"graph2a",				//nome canvas
+		data.fatturato.type,	//tipo grafico
+		getMonths()				//nomi mesi (label)
 	);
 
 	//Grafico 2
 	printPieGraph(
-		Object.values(data.fatturato_by_agent.data),
-		"graph2b",
-		data.fatturato_by_agent.type,
-		Object.keys(data.fatturato_by_agent.data)
+		Object.values(data.fatturato_by_agent.data),	//dati grafico
+		"graph2b",										//nome canvas
+		data.fatturato_by_agent.type,					//tipo grafico
+		Object.keys(data.fatturato_by_agent.data)		//nomi agenti (label)
 	);
 }
 
