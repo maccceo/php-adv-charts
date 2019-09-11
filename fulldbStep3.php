@@ -5,12 +5,17 @@
 
     $user = $_GET['level'];
 
+    //controllo che sia una utente valido altrimenti mando risultati da guest
+    if ($user != 'guest' && $user != 'employee' && $user != 'clevel') {
+    	$user = null;
+    } 
+
     $results = [];
 
 	if ($user == 'guest' || $user == null) {
 		foreach ($graphs as $type => $graph) {
 			if ($graph["access"] == 'guest') {
-				$results[] = [$type => $graph];;
+				$results[] = [$type => $graph];
 			}
 		}
 	}

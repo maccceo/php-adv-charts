@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Advanced Dashboard Charts</title>
     <!-- FONT: LATO -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:30,400,700" re="stylesheet">
     <!-- FONT: FONTAWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <!-- JS: JQUERY -->
@@ -28,13 +28,26 @@
   	<div id="main-container">
       <div class="graph-container" id="graph1-container">
         <h1>Grafici Step 1</h1>
-        <canvas id="graph1" width="500" height="200"></canvas>
+        <canvas id="graph1" width="30" height="15"></canvas>
       </div>
 
       <div class="graph-container" id="graph2-container">
         <h1>Grafici Step 2</h1>
-        <canvas id="graph2a" width="500" height="200"></canvas>
-        <canvas id="graph2b" width="500" height="200"></canvas>
+        <canvas id="graph2" width="30" height="15"></canvas>
+        <canvas id="graph3" width="30" height="15"></canvas>
+      </div>
+
+      <div class="graph-container" id="graph3-container">
+        <h1>Grafici Step 3</h1>
+        <div id="graph3-login">
+          <label for="step3input">Inserisci la password:</label>
+          <input id="step3input" type="password">
+          <button id="step3button">Go</button>
+          <a href="#" id="step3guestlink">Non hai una password? Accedi come guest</a>
+        </div>
+        <canvas id="graph4" width="30" height="15"></canvas>
+        <canvas id="graph5" width="30" height="15"></canvas>
+        <canvas id="graph6" width="30" height="15"></canvas>
       </div>
     </div>
   </body>

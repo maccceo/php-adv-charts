@@ -5,16 +5,56 @@
 	font-family: 'Lato', sans-serif;
 	user-select: none;
 	list-style: none;
+	background-color: salmon;
 }
 
 #main-container {
 	width: 100vw;
 	height: 100vh;
-	padding: 50px;
 	overflow: auto;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .graph-container {
-	width: 75%;
-	margin-bottom: 90px;
+	margin: 30px;
+	border: 3px solid mistyrose;
+	padding: 30px;
+	background-color: cornsilk;
+	width: 40%;
+	text-align: center;
+}
+
+.graph-container * {
+	background-color: cornsilk;
+}
+
+h1 {
+	margin-bottom: 12PX;
+    text-align: center;
+    border-bottom: 4px solid salmon;
+    display: inline-block;
+    padding: 1px 4px;
+}
+
+canvas {
+	margin-bottom: 30px;
+}
+
+#graph3-login {
+	text-align: left;
+	margin: 20px 0;
+}
+
+a {
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+	.graph-container {
+		width: 75%;
+	}
 }
