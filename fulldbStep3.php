@@ -4,13 +4,14 @@
     include ("databaseStep3.php");    
 
     $user = $_GET['level'];
+    $results = [];
 
     //controllo che sia una utente valido altrimenti mando risultati da guest
     if ($user != 'guest' && $user != 'employee' && $user != 'clevel') {
     	$user = null;
     } 
 
-    $results = [];
+    // ACCESSI DISPONIBILI:
 
 	if ($user == 'guest' || $user == null) {
 		foreach ($graphs as $type => $graph) {
@@ -35,7 +36,7 @@
 		}
 	}
 
-
+	// esporto in oggetto JSON
     echo json_encode($results);
 
  ?>
